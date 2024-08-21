@@ -11,4 +11,4 @@ shell:
 	poetry run python manage.py shell
 
 lint:
-	poetry run flake8 hexlet_django_blog
+	poetry run flake8 task_manager
