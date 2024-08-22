@@ -18,6 +18,7 @@ dj-database-url = "^2.2.0"
 whitenoise = "^6.7.0"
 gunicorn = "^23.0.0"
 uvicorn = "^0.30.6"
+django-bootstrap5 = "^24.2"
 
 
 [tool.poetry.group.dev.dependencies]
