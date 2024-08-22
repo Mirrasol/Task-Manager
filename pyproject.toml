@@ -6,7 +6,7 @@ authors = ["Elena Dobruk <elena.dobruk@yandex.ru>"]
 readme = "README.md"
 classifiers = ["Topic :: Software Development"]
 packages = [
-  { include = "task_mahager" },
+  { include = "task_manager" },
 ]
 
 [tool.poetry.dependencies]
