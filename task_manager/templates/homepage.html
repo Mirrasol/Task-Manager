@@ -1,6 +1,7 @@
 {% extends "base_layout.html" %}
 
 {% load django_bootstrap5 %}
+{% load i18n %}
 
 {% block main %}
 
@@ -11,10 +12,10 @@
 <h1 class="my-4"></h1>
 <div class="card">
   <div class="card-body p-5 bg-light">
-    <div class="display-4">Приветствие от Менеджера!</div>
-    <p class="lead">Интересуют другие проекты от создателя Менеджера?</p>
+    <div class="display-4">{% trans "Hello from the Manager!" %}</div>
+    <p class="lead">{% trans "Interested in other projects from the Manager's creator?" %}</p>
     <hr>
-    <a class="btn btn-primary btn-lg" href="https://github.com/Mirrasol">Узнать больше</a>
+    <a class="btn btn-primary btn-lg" href="https://github.com/Mirrasol">{% trans "Learn more" %}</a>
   </div>
 </div>
 
