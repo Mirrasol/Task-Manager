@@ -22,11 +22,11 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
-                <td>{{ user.full_name }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.created_at }}</td>
                 <td>
-                    <a class="link" href="{% url 'user_update' user.id %}">Update</a>
-                    <a class="link" href="{% url 'user_delete' user.id %}">Delete</a>
+                    <a class="link" href="/">Update</a>
+                    <a class="link" href="/">Delete</a>
                 </td>
             </tr>
         {% endfor %}
