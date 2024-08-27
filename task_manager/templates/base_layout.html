@@ -40,11 +40,13 @@
       </div>
     </nav>
 
-
   <main class="container wrapper flex-grow-1">
-      {% block main %}{% endblock %}
-  </main>
+    {% if messages %}
+          {% bootstrap_messages %}
+    {% endif %}
 
+    {% block content %}{% endblock %}
+  </main>
 
     <footer>
       <div class="container my-5 pt-4 border-top">

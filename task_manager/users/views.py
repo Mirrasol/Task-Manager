@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from task_manager.users.models import User
+from task_manager.users.forms import UserCreateForm
 
 
 class IndexView(View):
@@ -9,3 +10,16 @@ class IndexView(View):
         return render(request, 'users/index.html', context={
             'users': users
         })
+
+
+class UserCreateFormView(View):
+    def get(self, request, *args, **kwargs):
+        form = UserCreateForm()
+        return render(request, 'users/create.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = UserCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('users_index')
+        return render(request, 'users/create.html', {'form': form})

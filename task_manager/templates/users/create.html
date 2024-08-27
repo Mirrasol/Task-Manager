@@ -1,0 +1,24 @@
+{% extends "base_layout.html" %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+
+<h1 class="my-4">Register</h1>
+<form action="{% url 'user_create' %}" method="post">
+    {% csrf_token %}
+    <div class="mb-3"><label class="form-label" for="id_first_name">First name</label><input type="text" name="first_name" maxlength="150" class="form-control" placeholder="First name" required id="id_first_name"></div>
+    <div class="mb-3"><label class="form-label" for="id_last_name">Last name</label><input type="text" name="last_name" maxlength="150" class="form-control" placeholder="Last name" required id="id_last_name"></div>
+    <div class="mb-3"><label class="form-label" for="id_username">Username</label><input type="text" name="username" maxlength="150" autofocus class="form-control" placeholder="Username" required aria-describedby="id_username_helptext" id="id_username">
+        <div class="form-text">Required field. No more than 150 characters. Only letters, numbers and symbols @/./+/-/_.</div>
+    </div>
+    <div class="mb-3"><label class="form-label" for="id_password1">Password</label><input type="password" name="password1" autocomplete="new-password" class="form-control" placeholder="Password" required aria-describedby="id_password1_helptext" id="id_password1">
+        <div class="form-text"><ul><li>Your password must be at least 3 characters long.</li></ul></div>
+    </div>
+    <div class="mb-3"><label class="form-label" for="id_password2">Confirm your password</label><input type="password" name="password2" autocomplete="new-password" class="form-control" placeholder="Confirm password" required aria-describedby="id_password2_helptext" id="id_password2">
+        <div class="form-text">To confirm, please enter your password again.</div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+{% endblock %}
