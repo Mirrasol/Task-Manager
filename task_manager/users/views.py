@@ -1,5 +1,6 @@
 from django.views.generic import ListView, CreateView
 from django.contrib.auth import get_user_model
+from django.urls import reverse_lazy
 from task_manager.users.forms import UserCreateForm
 
 
@@ -13,4 +14,4 @@ class UserCreateView(CreateView):
     template_name = 'users/create.html'
     model = get_user_model()
     form_class = UserCreateForm
-    success_url = '/login/'
+    success_url = reverse_lazy('login')
