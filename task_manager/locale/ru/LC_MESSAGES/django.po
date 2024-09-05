@@ -84,8 +84,6 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: task_manager/users/models.py:7
-#, fuzzy
-#| msgid "Full name"
 msgid "First name"
 msgstr "Имя"
 
