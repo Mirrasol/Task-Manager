@@ -7,6 +7,9 @@ dev:
 start:
 	poetry run python -m gunicorn task_manager.asgi:application -k uvicorn.workers.UvicornWorker
 
+migrations:
+	poetry run python manage.py makemigrations
+
 migrate:
 	poetry run python manage.py migrate
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-05 13:28+0300\n"
+"POT-Creation-Date: 2024-09-05 16:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,7 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: task_manager/templates/base_layout.html:33
+#: task_manager/templates/login.html:8
 msgid "Log In"
 msgstr "Вход"
 
@@ -42,17 +43,25 @@ msgstr "Вход"
 msgid "Sign Up"
 msgstr "Регистрация"
 
-#: task_manager/templates/homepage.html:15
+#: task_manager/templates/homepage.html:11
 msgid "Hello from the Manager!"
 msgstr "Привет от Менеджера!"
 
-#: task_manager/templates/homepage.html:16
+#: task_manager/templates/homepage.html:12
 msgid "Interested in other projects from the Manager's creator?"
 msgstr "Интересны другие проекты от создателя Менеджера?"
 
-#: task_manager/templates/homepage.html:18
+#: task_manager/templates/homepage.html:14
 msgid "Learn more"
 msgstr "Узнать больше"
+
+#: task_manager/templates/login.html:12
+msgid "Sign In"
+msgstr "Войти"
+
+#: task_manager/templates/users/create.html:12
+msgid "Submit"
+msgstr "Зарегистрировать"
 
 #: task_manager/templates/users/index.html:13
 msgid "Username"
@@ -73,3 +82,13 @@ msgstr "Изменить"
 #: task_manager/templates/users/index.html:30
 msgid "Delete"
 msgstr "Удалить"
+
+#: task_manager/users/models.py:7
+#, fuzzy
+#| msgid "Full name"
+msgid "First name"
+msgstr "Имя"
+
+#: task_manager/users/models.py:8
+msgid "Last name"
+msgstr "Фамилия"
