@@ -15,3 +15,9 @@ shell:
 
 lint:
 	poetry run flake8 task_manager
+
+messages:
+	poetry run django-admin makemessages -l ru
+
+compile:
+	poetry run django-admin compilemessages
