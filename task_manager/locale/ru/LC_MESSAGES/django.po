@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-05 16:46+0300\n"
+"POT-Creation-Date: 2024-09-06 14:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,25 +20,29 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/templates/base_layout.html:14
+#: task_manager/templates/base_layout.html:12
 msgid "Task Manager from the Hexlet courses"
 msgstr ""
 
-#: task_manager/templates/base_layout.html:19
+#: task_manager/templates/base_layout.html:18
 msgid "Task Manager"
 msgstr "Менеджер задач"
 
-#: task_manager/templates/base_layout.html:26
+#: task_manager/templates/base_layout.html:25
 #: task_manager/templates/users/index.html:7
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base_layout.html:33
+#: task_manager/templates/base_layout.html:34
+msgid "Log Out"
+msgstr "Выход"
+
+#: task_manager/templates/base_layout.html:42
 #: task_manager/templates/login.html:8
 msgid "Log In"
 msgstr "Вход"
 
-#: task_manager/templates/base_layout.html:36
+#: task_manager/templates/base_layout.html:45
 #: task_manager/templates/users/create.html:8
 msgid "Sign Up"
 msgstr "Регистрация"
@@ -90,3 +94,11 @@ msgstr "Имя"
 #: task_manager/users/models.py:8
 msgid "Last name"
 msgstr "Фамилия"
+
+#: task_manager/users/views.py:20
+msgid "User has been registered successfully"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/views.py:15
+msgid "You are logged in"
+msgstr "Вы залогинены"
