@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-06 14:07+0300\n"
+"POT-Creation-Date: 2024-09-06 17:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,12 +80,25 @@ msgid "Created at"
 msgstr "Дата создания"
 
 #: task_manager/templates/users/index.html:28
+#: task_manager/templates/users/update.html:12
 msgid "Update"
 msgstr "Изменить"
 
 #: task_manager/templates/users/index.html:30
 msgid "Delete"
 msgstr "Удалить"
+
+#: task_manager/templates/users/update.html:8
+msgid "User update"
+msgstr "Изменение пользователя"
+
+#: task_manager/users/mixins.py:11
+msgid "You are not authorized! Please, log in."
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/users/mixins.py:14
+msgid "You do not have permissions to edit another user."
+msgstr "У вас нет прав для изменения другого пользователя."
 
 #: task_manager/users/models.py:7
 msgid "First name"
@@ -95,9 +108,13 @@ msgstr "Имя"
 msgid "Last name"
 msgstr "Фамилия"
 
-#: task_manager/users/views.py:20
+#: task_manager/users/views.py:21
 msgid "User has been registered successfully"
 msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/users/views.py:29
+msgid "User has been updated successfully"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/views.py:15
 msgid "You are logged in"
