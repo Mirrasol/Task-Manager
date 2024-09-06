@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from task_manager.users.forms import UserCreateForm
@@ -27,3 +27,10 @@ class UserUpdateView(CustomPermissionsMixin, SuccessMessageMixin, UpdateView):
     form_class = UserCreateForm
     success_url = reverse_lazy('users_index')
     success_message = _('User has been updated successfully')
+
+
+class UserDeleteView(CustomPermissionsMixin, SuccessMessageMixin, DeleteView):
+    template_name = 'users/delete.html'
+    model = get_user_model()
+    success_url = reverse_lazy('users_index')
+    success_message = _('User has been deleted successfully')
