@@ -22,7 +22,7 @@ from task_manager import views
 urlpatterns = [
     path('', views.Homepage.as_view(), name='homepage'),
     path('login/', views.CustomLoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', views.CustomLogoutView.as_view(), name='logout'),
     path('users/', include('task_manager.users.urls')),
     path('admin/', admin.site.urls),
 ]
