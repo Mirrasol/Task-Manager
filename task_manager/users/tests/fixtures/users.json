@@ -1,0 +1,32 @@
+[
+  {
+    "model": "users.User",
+    "pk": 1,
+    "fields": {
+      "first_name": "Cam",
+      "last_name": "Brian",
+      "username": "Cambrian",
+      "password": "10101"
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 2,
+    "fields": {
+      "first_name": "Ordo",
+      "last_name": "Vician",
+      "username": "Ordovician",
+      "password": "20202"
+    }
+  },
+    {
+    "model": "users.User",
+    "pk": 3,
+    "fields": {
+      "first_name": "Silur",
+      "last_name": "Ian",
+      "username": "Silurian",
+      "password": "30303"
+    }
+  }
+]
