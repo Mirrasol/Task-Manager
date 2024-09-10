@@ -54,7 +54,7 @@ class UsersTestCase(TestCase):
         }
         response = self.client.post(update_url, updated_data)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(get_user_model().objects.get(id=1).username, 'Cambrian_1')
+        self.assertEqual(self.user1.username, 'Cambrian_1')
         self.assertRedirects(response, reverse_lazy('users_index'))
 
     def test_update_authenticated_others(self):
