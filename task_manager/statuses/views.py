@@ -1,6 +1,5 @@
-from django.views.generic import ListView
+from django.views.generic import TemplateView
 
 
-class IndexView(ListView):
+class IndexView(TemplateView):
     template_name = 'statuses/index.html'
-    context_object_name = 'statuses'
