@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 16:58+0300\n"
+"POT-Creation-Date: 2024-09-11 18:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,10 @@ msgstr "Статус успешно создан"
 #: task_manager/statuses/views.py:30
 msgid "Status has been updated successfully"
 msgstr "Статус успешно изменен"
+
+#: task_manager/statuses/views.py:37
+msgid "Status has been deleted successfully"
+msgstr "Статус успешно удален"
 
 #: task_manager/templates/base_layout.html:9
 msgid "Task Manager from the Hexlet courses"
@@ -98,6 +102,20 @@ msgstr "Создать статус"
 msgid "Create"
 msgstr "Создать"
 
+#: task_manager/templates/statuses/delete.html:8
+msgid "Status deletion"
+msgstr "Удаление статуса"
+
+#: task_manager/templates/statuses/delete.html:12
+#: task_manager/templates/users/delete.html:12
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: task_manager/templates/statuses/delete.html:13
+#: task_manager/templates/users/delete.html:13
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
 #: task_manager/templates/statuses/index.html:14
 #: task_manager/templates/users/index.html:15
 msgid "Created at"
@@ -126,14 +144,6 @@ msgstr "Зарегистрировать"
 #: task_manager/templates/users/delete.html:8
 msgid "User deletion"
 msgstr "Удаление пользователя"
-
-#: task_manager/templates/users/delete.html:12
-msgid "Are you sure you want to delete"
-msgstr "Вы уверены, что хотите удалить"
-
-#: task_manager/templates/users/delete.html:13
-msgid "Yes, delete"
-msgstr "Да, удалить"
 
 #: task_manager/templates/users/index.html:13
 msgid "Username"

@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from task_manager.statuses.models import Status
 from task_manager.mixins import AuthenticatedMixin
 from task_manager.statuses.forms import StatusCreateForm
@@ -28,3 +28,10 @@ class StatusUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
     form_class = StatusCreateForm
     success_url = reverse_lazy('statuses_index')
     success_message = _('Status has been updated successfully')
+
+
+class StatusDeleteView(AuthenticatedMixin, SuccessMessageMixin, DeleteView):
+    template_name = 'statuses/delete.html'
+    model = Status
+    success_url = reverse_lazy('statuses_index')
+    success_message = _('Status has been deleted successfully')
