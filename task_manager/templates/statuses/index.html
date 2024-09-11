@@ -23,7 +23,7 @@
                 <td>{{ status.name }}</td>
                 <td>{{ status.created_at }}</td>
                 <td>
-                    <a class="link" href="/">{% trans "Update" %}</a>
+                    <a class="link" href="{% url 'status_update' status.id %}">{% trans "Update" %}</a>
                     <br>
                     <a class="link" href="/">{% trans "Delete" %}</a>
                 </td>

@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from task_manager.statuses.models import Status
 from task_manager.mixins import AuthenticatedMixin
 from task_manager.statuses.forms import StatusCreateForm
@@ -20,3 +20,11 @@ class StatusCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
     form_class = StatusCreateForm
     success_url = reverse_lazy('statuses_index')
     success_message = _('Status has been created successfully')
+
+
+class StatusUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
+    template_name = 'statuses/update.html'
+    model = Status
+    form_class = StatusCreateForm
+    success_url = reverse_lazy('statuses_index')
+    success_message = _('Status has been updated successfully')
