@@ -2,51 +2,55 @@
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% trans "Task Manager from the Hexlet courses" %}</title>
-
+    {% bootstrap_css %}
   </head>
 
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
       <a class="navbar-brand" href="{% url 'homepage' %}">{% trans "Task Manager" %}</a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
+      <button class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+      <div class="navbar-collapse collapse" id="navbarToggleExternalContent">
+
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'users_index' %}">{% trans "Users" %}</a>
           </li>
         </ul>
 
-          {% if user.is_authenticated %}
-        <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <input class="btn nav-link" type="submit" value="{% trans 'Log Out' %}">
-              </form>
+            <a class="nav-link" href="{% url 'statuses_index' %}">{% trans "Statuses" %}</a>
           </li>
         </ul>
 
-          {% else %}
         <ul class="navbar-nav">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input class="btn nav-link" type="submit" value="{% trans 'Log Out' %}">
+            </form>
+        </ul>
+
+        {% else %}
+
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">{% trans "Log In"%}</a>
+            <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'user_create' %}">{% trans "Sign Up" %}</a>
           </li>
         </ul>
 
-          {% endif %}
+        {% endif %}
 
       </div>
     </nav>
