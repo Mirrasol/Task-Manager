@@ -21,17 +21,17 @@ class UsersTestCase(TestCase):
             'password2': 40404,
         }
 
-        response = self.client.get(reverse_lazy('create'))
+        response = self.client.get(reverse_lazy('user_create'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'users/create.html')
 
-        response = self.client.post(reverse_lazy('create'), new_user)
+        response = self.client.post(reverse_lazy('user_create'), new_user)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(get_user_model().objects.get(id=4).username, 'Devonian')
         self.assertRedirects(response, reverse_lazy('login'))
 
     def test_update_unauthenticated(self):
-        update_url = reverse_lazy('update', kwargs={'pk': self.user2.id})
+        update_url = reverse_lazy('user_update', kwargs={'pk': self.user2.id})
 
         response = self.client.get(update_url)
         self.assertEqual(response.status_code, 302)
@@ -39,7 +39,7 @@ class UsersTestCase(TestCase):
 
     def test_update_authenticated_self(self):
         self.client.force_login(self.user1)
-        update_url = reverse_lazy('update', kwargs={'pk': self.user1.id})
+        update_url = reverse_lazy('user_update', kwargs={'pk': self.user1.id})
 
         response = self.client.get(update_url)
         self.assertEqual(response.status_code, 200)
@@ -54,12 +54,12 @@ class UsersTestCase(TestCase):
         }
         response = self.client.post(update_url, updated_data)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(self.user1.username, 'Cambrian_1')
+        self.assertEqual(get_user_model().objects.get(pk=1).username, 'Cambrian_1')
         self.assertRedirects(response, reverse_lazy('users_index'))
 
     def test_update_authenticated_others(self):
         self.client.force_login(self.user1)
-        update_url = reverse_lazy('update', kwargs={'pk': self.user3.id})
+        update_url = reverse_lazy('user_update', kwargs={'pk': self.user3.id})
 
         response = self.client.get(update_url)
         self.assertEqual(response.status_code, 302)
@@ -67,7 +67,7 @@ class UsersTestCase(TestCase):
 
     def test_delete_unauthenticated(self):
         self.client.logout()
-        delete_url = reverse_lazy('delete', kwargs={'pk': self.user1.id})
+        delete_url = reverse_lazy('user_delete', kwargs={'pk': self.user1.id})
 
         response = self.client.get(delete_url)
         self.assertEqual(response.status_code, 302)
@@ -75,18 +75,18 @@ class UsersTestCase(TestCase):
 
     def test_delete_authenticated_self(self):
         self.client.force_login(self.user1)
-        delete_url = reverse_lazy('delete', kwargs={'pk': self.user1.id})
-
-        response = self.client.post(delete_url)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('login'))
-        self.assertFalse(self.user1.exists())
-
-    def test_delete_authenticated_others(self):
-        self.client.force_login(self.user2)
-        delete_url = reverse_lazy('delete', kwargs={'pk': self.user3.id})
+        delete_url = reverse_lazy('user_delete', kwargs={'pk': self.user1.id})
 
         response = self.client.post(delete_url)
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('users_index'))
-        self.assertTrue(self.user3.exists())
+        self.assertFalse(get_user_model().objects.contains(self.user1))
+
+    def test_delete_authenticated_others(self):
+        self.client.force_login(self.user2)
+        delete_url = reverse_lazy('user_delete', kwargs={'pk': self.user3.id})
+
+        response = self.client.post(delete_url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('users_index'))
+        self.assertTrue(get_user_model().objects.contains(self.user3))
