@@ -11,6 +11,7 @@ class IndexView(ListView):
     template_name = 'users/index.html'
     model = get_user_model()
     context_object_name = 'users'
+    ordering = ['id']
 
 
 class UserCreateView(SuccessMessageMixin, CreateView):
