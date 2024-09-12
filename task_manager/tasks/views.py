@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from task_manager.tasks.models import Task
 from task_manager.mixins import AuthenticatedMixin
 from task_manager.tasks.forms import TaskCreateForm
@@ -25,3 +25,11 @@ class TaskCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
         task = form.save(commit=False)
         task.author = self.request.user
         return super().form_valid(form)
+
+
+class TaskUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
+    template_name = 'tasks/update.html'
+    model = Task
+    form_class = TaskCreateForm
+    success_url = reverse_lazy('tasks_index')
+    success_message = _('Task has been updated successfully')

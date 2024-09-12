@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 16:04+0300\n"
+"POT-Creation-Date: 2024-09-12 16:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,10 @@ msgstr "Исполнитель"
 #: task_manager/tasks/views.py:22
 msgid "Task has been created successfully"
 msgstr "Задача успешно создана"
+
+#: task_manager/tasks/views.py:35
+msgid "Task has been updated successfully"
+msgstr "Задача успешно изменена"
 
 #: task_manager/templates/base_layout.html:9
 msgid "Task Manager from the Hexlet courses"
@@ -152,6 +156,7 @@ msgstr "Дата создания"
 #: task_manager/templates/statuses/index.html:26
 #: task_manager/templates/statuses/update.html:12
 #: task_manager/templates/tasks/index.html:37
+#: task_manager/templates/tasks/update.html:12
 #: task_manager/templates/users/index.html:28
 #: task_manager/templates/users/update.html:12
 msgid "Update"
@@ -171,6 +176,10 @@ msgstr "Изменение статуса"
 #: task_manager/templates/tasks/index.html:8
 msgid "Create task"
 msgstr "Создать задачу"
+
+#: task_manager/templates/tasks/update.html:8
+msgid "Task update"
+msgstr "Изменение задачи"
 
 #: task_manager/templates/users/create.html:12
 msgid "Submit"
