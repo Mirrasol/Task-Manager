@@ -5,7 +5,7 @@
 
 {% block content %}
     <h1 class="my-4">{% trans "Tasks" %}</h1>
-    <a class="btn btn-primary mb-3" href="/">{% trans "Create task" %}</a>
+    <a class="btn btn-primary mb-3" href="{% url 'task_create' %}">{% trans "Create task" %}</a>
 
     <table class="table table-striped">
         <thead>
@@ -27,8 +27,12 @@
                 <td>{{ task.name }}</td>
                 <td>{{ task.status }}</td>
                 <td>{{ task.author }}</td>
+                {% if task.executor %}
                 <td>{{ task.executor }}</td>
-                <td>{{ status.created_at }}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+                <td>{{ task.created_at }}</td>
                 <td>
                     <a class="link" href="/">{% trans "Update" %}</a>
                     <br>
