@@ -19,3 +19,11 @@ class OwnerMixin(LoginRequiredMixin):
             messages.error(request, _('You do not have permissions to edit another user.'))
             return redirect(reverse_lazy('users_index'))
         return super().dispatch(request, *args, **kwargs)
+
+
+class AuthorMixin(LoginRequiredMixin):
+    def dispatch(self, request, *args, **kwargs):
+        if not self.get_object().author == self.request.user:
+            messages.error(request, _('Task can be deleted only by its author'))
+            return redirect(reverse_lazy('tasks_index'))
+        return super().dispatch(request, *args, **kwargs)

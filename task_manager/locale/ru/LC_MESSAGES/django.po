@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 16:25+0300\n"
+"POT-Creation-Date: 2024-09-12 17:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,10 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 #: task_manager/mixins.py:19
 msgid "You do not have permissions to edit another user."
 msgstr "У вас нет прав для изменения другого пользователя."
+
+#: task_manager/mixins.py:27
+msgid "Task can be deleted only by its author"
+msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/statuses/models.py:6 task_manager/tasks/models.py:10
 #: task_manager/templates/statuses/index.html:13
@@ -69,6 +73,10 @@ msgstr "Задача успешно создана"
 #: task_manager/tasks/views.py:35
 msgid "Task has been updated successfully"
 msgstr "Задача успешно изменена"
+
+#: task_manager/tasks/views.py:42
+msgid "Task has been deleted successfully"
+msgstr "Задача успешно удалена"
 
 #: task_manager/templates/base_layout.html:9
 msgid "Task Manager from the Hexlet courses"
@@ -138,11 +146,13 @@ msgid "Status deletion"
 msgstr "Удаление статуса"
 
 #: task_manager/templates/statuses/delete.html:12
+#: task_manager/templates/tasks/delete.html:12
 #: task_manager/templates/users/delete.html:12
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/templates/statuses/delete.html:13
+#: task_manager/templates/tasks/delete.html:13
 #: task_manager/templates/users/delete.html:13
 msgid "Yes, delete"
 msgstr "Да, удалить"
@@ -176,6 +186,10 @@ msgstr "Изменение статуса"
 #: task_manager/templates/tasks/index.html:8
 msgid "Create task"
 msgstr "Создать задачу"
+
+#: task_manager/templates/tasks/delete.html:8
+msgid "Task deletion"
+msgstr "Удаление задачи"
 
 #: task_manager/templates/tasks/update.html:8
 msgid "Task update"
