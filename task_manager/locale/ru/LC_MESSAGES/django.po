@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 12:17+0300\n"
+"POT-Creation-Date: 2024-09-12 13:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,9 +28,9 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 msgid "You do not have permissions to edit another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/statuses/models.py:6
+#: task_manager/statuses/models.py:6 task_manager/tasks/models.py:10
 #: task_manager/templates/statuses/index.html:13
-#: task_manager/templates/tasks/index.html:16
+#: task_manager/templates/tasks/index.html:14
 msgid "Name"
 msgstr "Имя"
 
@@ -45,6 +45,22 @@ msgstr "Статус успешно изменен"
 #: task_manager/statuses/views.py:37
 msgid "Status has been deleted successfully"
 msgstr "Статус успешно удален"
+
+#: task_manager/tasks/models.py:14
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/models.py:21 task_manager/templates/tasks/index.html:15
+msgid "Status"
+msgstr "Статус"
+
+#: task_manager/tasks/models.py:27 task_manager/templates/tasks/index.html:16
+msgid "Author"
+msgstr "Автор"
+
+#: task_manager/tasks/models.py:33 task_manager/templates/tasks/index.html:17
+msgid "Executor"
+msgstr "Исполнитель"
 
 #: task_manager/templates/base_layout.html:9
 msgid "Task Manager from the Hexlet courses"
@@ -105,6 +121,7 @@ msgid "Create status"
 msgstr "Создать статус"
 
 #: task_manager/templates/statuses/create.html:12
+#: task_manager/templates/tasks/create.html:12
 msgid "Create"
 msgstr "Создать"
 
@@ -123,21 +140,21 @@ msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: task_manager/templates/statuses/index.html:14
-#: task_manager/templates/tasks/index.html:20
+#: task_manager/templates/tasks/index.html:18
 #: task_manager/templates/users/index.html:15
 msgid "Created at"
 msgstr "Дата создания"
 
 #: task_manager/templates/statuses/index.html:26
 #: task_manager/templates/statuses/update.html:12
-#: task_manager/templates/tasks/index.html:35
+#: task_manager/templates/tasks/index.html:33
 #: task_manager/templates/users/index.html:28
 #: task_manager/templates/users/update.html:12
 msgid "Update"
 msgstr "Изменить"
 
 #: task_manager/templates/statuses/index.html:28
-#: task_manager/templates/tasks/index.html:37
+#: task_manager/templates/tasks/index.html:35
 #: task_manager/templates/users/index.html:30
 msgid "Delete"
 msgstr "Удалить"
@@ -146,21 +163,10 @@ msgstr "Удалить"
 msgid "Status update"
 msgstr "Изменение статуса"
 
+#: task_manager/templates/tasks/create.html:8
 #: task_manager/templates/tasks/index.html:8
 msgid "Create task"
 msgstr "Создать задачу"
-
-#: task_manager/templates/tasks/index.html:17
-msgid "Status"
-msgstr "Статус"
-
-#: task_manager/templates/tasks/index.html:18
-msgid "Author"
-msgstr "Автор"
-
-#: task_manager/templates/tasks/index.html:19
-msgid "Assignee"
-msgstr "Исполнитель"
 
 #: task_manager/templates/users/create.html:12
 msgid "Submit"
