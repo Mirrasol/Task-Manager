@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 17:11+0300\n"
+"POT-Creation-Date: 2024-09-12 17:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/mixins.py:11
+#: task_manager/mixins.py:12
 msgid "You are not authorized! Please, log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: task_manager/mixins.py:19
+#: task_manager/mixins.py:20
 msgid "You do not have permissions to edit another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/mixins.py:27
+#: task_manager/mixins.py:28
 msgid "Task can be deleted only by its author"
 msgstr "Задачу может удалить только ее автор"
 
@@ -49,6 +49,10 @@ msgstr "Статус успешно изменен"
 #: task_manager/statuses/views.py:37
 msgid "Status has been deleted successfully"
 msgstr "Статус успешно удален"
+
+#: task_manager/statuses/views.py:38
+msgid "Cannot delete status that is currently being used"
+msgstr "Невозможно удалить статус, потому что он используется"
 
 #: task_manager/tasks/models.py:14
 msgid "Description"
@@ -227,13 +231,17 @@ msgstr "Фамилия"
 msgid "User has been registered successfully"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:30
+#: task_manager/users/views.py:35
 msgid "User has been updated successfully"
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:37
+#: task_manager/users/views.py:48
 msgid "User has been deleted successfully"
 msgstr "Пользователь успешно удален"
+
+#: task_manager/users/views.py:49
+msgid "Cannot delete user that is currently being used"
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: task_manager/views.py:16
 msgid "You are logged in"

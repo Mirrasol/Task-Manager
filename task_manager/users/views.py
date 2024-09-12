@@ -2,7 +2,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
 from django.urls import reverse_lazy
 from task_manager.users.forms import UserCreateForm
-from task_manager.mixins import AuthenticatedMixin, OwnerMixin
+from task_manager.mixins import AuthenticatedMixin, OwnerProtectionMixin, DeleteProtectionMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
 
@@ -22,7 +22,12 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     success_message = _('User has been registered successfully')
 
 
-class UserUpdateView(AuthenticatedMixin, OwnerMixin, SuccessMessageMixin, UpdateView):
+class UserUpdateView(
+    AuthenticatedMixin,
+    OwnerProtectionMixin,
+    SuccessMessageMixin,
+    UpdateView,
+):
     template_name = 'users/update.html'
     model = get_user_model()
     form_class = UserCreateForm
@@ -30,8 +35,16 @@ class UserUpdateView(AuthenticatedMixin, OwnerMixin, SuccessMessageMixin, Update
     success_message = _('User has been updated successfully')
 
 
-class UserDeleteView(AuthenticatedMixin, OwnerMixin, SuccessMessageMixin, DeleteView):
+class UserDeleteView(
+    AuthenticatedMixin,
+    OwnerProtectionMixin,
+    DeleteProtectionMixin,
+    SuccessMessageMixin,
+    DeleteView,
+):
     template_name = 'users/delete.html'
     model = get_user_model()
     success_url = reverse_lazy('users_index')
     success_message = _('User has been deleted successfully')
+    protection_message = _('Cannot delete user that is currently being used')
+    protection_redirect = reverse_lazy('users_index')

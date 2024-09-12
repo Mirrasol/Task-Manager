@@ -1,6 +1,6 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from task_manager.statuses.models import Status
-from task_manager.mixins import AuthenticatedMixin
+from task_manager.mixins import AuthenticatedMixin, DeleteProtectionMixin
 from task_manager.statuses.forms import StatusCreateForm
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
@@ -30,8 +30,10 @@ class StatusUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
     success_message = _('Status has been updated successfully')
 
 
-class StatusDeleteView(AuthenticatedMixin, SuccessMessageMixin, DeleteView):
+class StatusDeleteView(AuthenticatedMixin, DeleteProtectionMixin, SuccessMessageMixin, DeleteView):
     template_name = 'statuses/delete.html'
     model = Status
     success_url = reverse_lazy('statuses_index')
     success_message = _('Status has been deleted successfully')
+    protection_message = _('Cannot delete status that is currently being used')
+    protection_redirect = reverse_lazy('statuses_index')
