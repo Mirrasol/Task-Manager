@@ -27,11 +27,7 @@
                 <td>{{ task.name }}</td>
                 <td>{{ task.status }}</td>
                 <td>{{ task.author }}</td>
-                {% if task.executor %}
-                <td>{{ task.executor }}</td>
-                {% else %}
-                <td></td>
-                {% endif %}
+                <td>{{ task.executor|default:"" }}</td>
                 <td>{{ task.created_at }}</td>
                 <td>
                     <a class="link" href="{% url 'task_update' task.id %}">{% trans "Update" %}</a>
