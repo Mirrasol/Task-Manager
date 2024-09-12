@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from task_manager.tasks.models import Task
 from task_manager.mixins import AuthenticatedMixin, AuthorProtectionMixin
 from task_manager.tasks.forms import TaskCreateForm
@@ -40,3 +40,8 @@ class TaskDeleteView(AuthenticatedMixin, AuthorProtectionMixin, SuccessMessageMi
     model = Task
     success_url = reverse_lazy('tasks_index')
     success_message = _('Task has been deleted successfully')
+
+
+class TaskView(AuthenticatedMixin, DetailView):
+    template_name = 'tasks/overview.html'
+    model = Task

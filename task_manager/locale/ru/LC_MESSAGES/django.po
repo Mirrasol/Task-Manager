@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 17:39+0300\n"
+"POT-Creation-Date: 2024-09-12 21:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,14 +59,17 @@ msgid "Description"
 msgstr "Описание"
 
 #: task_manager/tasks/models.py:21 task_manager/templates/tasks/index.html:15
+#: task_manager/templates/tasks/overview.html:26
 msgid "Status"
 msgstr "Статус"
 
 #: task_manager/tasks/models.py:27 task_manager/templates/tasks/index.html:16
+#: task_manager/templates/tasks/overview.html:18
 msgid "Author"
 msgstr "Автор"
 
 #: task_manager/tasks/models.py:33 task_manager/templates/tasks/index.html:17
+#: task_manager/templates/tasks/overview.html:22
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -163,13 +166,15 @@ msgstr "Да, удалить"
 
 #: task_manager/templates/statuses/index.html:14
 #: task_manager/templates/tasks/index.html:18
+#: task_manager/templates/tasks/overview.html:30
 #: task_manager/templates/users/index.html:15
 msgid "Created at"
 msgstr "Дата создания"
 
 #: task_manager/templates/statuses/index.html:26
 #: task_manager/templates/statuses/update.html:12
-#: task_manager/templates/tasks/index.html:37
+#: task_manager/templates/tasks/index.html:34
+#: task_manager/templates/tasks/overview.html:35
 #: task_manager/templates/tasks/update.html:12
 #: task_manager/templates/users/index.html:28
 #: task_manager/templates/users/update.html:12
@@ -177,7 +182,8 @@ msgid "Update"
 msgstr "Изменить"
 
 #: task_manager/templates/statuses/index.html:28
-#: task_manager/templates/tasks/index.html:39
+#: task_manager/templates/tasks/index.html:36
+#: task_manager/templates/tasks/overview.html:37
 #: task_manager/templates/users/index.html:30
 msgid "Delete"
 msgstr "Удалить"
@@ -194,6 +200,10 @@ msgstr "Создать задачу"
 #: task_manager/templates/tasks/delete.html:8
 msgid "Task deletion"
 msgstr "Удаление задачи"
+
+#: task_manager/templates/tasks/overview.html:8
+msgid "Task overview"
+msgstr "Просмотр задачи"
 
 #: task_manager/templates/tasks/update.html:8
 msgid "Task update"
