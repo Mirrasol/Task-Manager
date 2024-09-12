@@ -32,6 +32,12 @@
           </li>
         </ul>
 
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'tasks_index' %}">{% trans "Tasks" %}</a>
+          </li>
+        </ul>
+
         <ul class="navbar-nav">
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}

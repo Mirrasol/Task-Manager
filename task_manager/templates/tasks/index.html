@@ -1,0 +1,44 @@
+{% extends "base_layout.html" %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+    <h1 class="my-4">{% trans "Tasks" %}</h1>
+    <a class="btn btn-primary mb-3" href="/">{% trans "Create task" %}</a>
+
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Status" %}</th>
+                <th>{% trans "Author" %}</th>
+                <th>{% trans "Assignee" %}</th>
+                <th>{% trans "Created at" %}</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.author }}</td>
+                <td>{{ task.assignee }}</td>
+                <td>{{ status.created_at }}</td>
+                <td>
+                    <a class="link" href="/">{% trans "Update" %}</a>
+                    <br>
+                    <a class="link" href="/">{% trans "Delete" %}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}
