@@ -1,0 +1,23 @@
+[
+  {
+    "model": "statuses.Status",
+    "pk": 1,
+    "fields": {
+      "name": "Backlog"
+    }
+  },
+  {
+    "model": "statuses.Status",
+    "pk": 2,
+    "fields": {
+      "name": "In progress"
+    }
+  },
+    {
+    "model": "statuses.Status",
+    "pk": 3,
+    "fields": {
+      "name": "Completed"
+    }
+  }
+]
