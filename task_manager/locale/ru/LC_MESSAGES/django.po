@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-13 16:45+0300\n"
+"POT-Creation-Date: 2024-09-13 16:53+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,14 @@ msgstr "Метка успешно создана"
 #: task_manager/labels/views.py:30
 msgid "Label has been updated successfully"
 msgstr "Метка успешно изменена"
+
+#: task_manager/labels/views.py:37
+msgid "Label has been deleted successfully"
+msgstr "Метка успешно удалена"
+
+#: task_manager/labels/views.py:38
+msgid "Cannot delete label that is currently being used"
+msgstr "Невозможно удалить метку, потому что она используется"
 
 #: task_manager/mixins.py:12
 msgid "You are not authorized! Please, log in."
