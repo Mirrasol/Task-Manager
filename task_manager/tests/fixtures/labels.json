@@ -1,0 +1,23 @@
+[
+  {
+    "model": "labels.Label",
+    "pk": 1,
+    "fields": {
+      "name": "random"
+    }
+  },
+  {
+    "model": "labels.Label",
+    "pk": 2,
+    "fields": {
+      "name": "bug"
+    }
+  },
+    {
+    "model": "labels.Label",
+    "pk": 3,
+    "fields": {
+      "name": "enhancement"
+    }
+  }
+]
