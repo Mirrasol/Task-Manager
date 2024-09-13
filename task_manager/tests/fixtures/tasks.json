@@ -1,0 +1,35 @@
+[
+  {
+    "model": "tasks.Task",
+    "pk": 1,
+    "fields": {
+      "name": "Project A",
+      "description": "Paleozoic conference",
+      "author": "1",
+      "executor": "1",
+      "status": "3"
+    }
+  },
+  {
+    "model": "tasks.Task",
+    "pk": 2,
+    "fields": {
+      "name": "Project B",
+      "description": "Refactoring the existing environment",
+      "author": "1",
+      "executor": "3",
+      "status": "2"
+    }
+  },
+    {
+    "model": "tasks.Task",
+    "pk": 3,
+    "fields": {
+      "name": "Project C",
+      "description": "Long overdue",
+      "author": "3",
+      "executor": "2",
+      "status": "1"
+    }
+  }
+]
