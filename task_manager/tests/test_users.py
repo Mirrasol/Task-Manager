@@ -38,8 +38,9 @@ class UsersTestCase(TestCase):
         self.assertRedirects(response, reverse_lazy('login'))
 
     def test_update_authenticated_self(self):
-        self.client.force_login(self.user1)
         update_url = reverse_lazy('user_update', kwargs={'pk': self.user1.id})
+
+        self.client.force_login(self.user1)
 
         response = self.client.get(update_url)
         self.assertEqual(response.status_code, 200)
@@ -58,24 +59,27 @@ class UsersTestCase(TestCase):
         self.assertRedirects(response, reverse_lazy('users_index'))
 
     def test_update_authenticated_others(self):
-        self.client.force_login(self.user1)
         update_url = reverse_lazy('user_update', kwargs={'pk': self.user3.id})
+
+        self.client.force_login(self.user1)
 
         response = self.client.get(update_url)
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('users_index'))
 
     def test_delete_unauthenticated(self):
-        self.client.logout()
         delete_url = reverse_lazy('user_delete', kwargs={'pk': self.user1.id})
+
+        self.client.logout()
 
         response = self.client.get(delete_url)
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('login'))
 
     def test_delete_authenticated_self(self):
-        self.client.force_login(self.user1)
         delete_url = reverse_lazy('user_delete', kwargs={'pk': self.user1.id})
+
+        self.client.force_login(self.user1)
 
         response = self.client.post(delete_url)
         self.assertEqual(response.status_code, 302)
@@ -83,8 +87,9 @@ class UsersTestCase(TestCase):
         self.assertFalse(get_user_model().objects.contains(self.user1))
 
     def test_delete_authenticated_others(self):
-        self.client.force_login(self.user2)
         delete_url = reverse_lazy('user_delete', kwargs={'pk': self.user3.id})
+
+        self.client.force_login(self.user2)
 
         response = self.client.post(delete_url)
         self.assertEqual(response.status_code, 302)

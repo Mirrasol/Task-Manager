@@ -24,3 +24,6 @@ messages:
 
 compile:
 	poetry run django-admin compilemessages
+
+tests:
+	poetry run python manage.py test task_manager.tests
