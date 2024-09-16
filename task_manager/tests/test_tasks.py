@@ -3,7 +3,7 @@ from task_manager.tasks.models import Task
 
 
 class LabelsTestCase(TestCase):
-    fixtures = ['tasks.json']
+    fixtures = ['labels.json', 'statuses.json', 'tasks.json', 'users.json']
 
     def setUp(self):
         self.client = Client()

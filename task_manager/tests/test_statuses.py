@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 
 
 class StatusesTestCase(TestCase):
-    fixtures = ['users.json', 'statuses.json']
+    fixtures = ['labels.json', 'statuses.json', 'tasks.json', 'users.json']
 
     def setUp(self):
         self.client = Client()
@@ -14,7 +14,23 @@ class StatusesTestCase(TestCase):
         self.status2 = Status.objects.get(pk=2)
         self.status3 = Status.objects.get(pk=3)
 
+    def test_read_unauthenticated(self):
+        self.client.logout()
+
+        response = self.client.get(reverse_lazy('statuses_index'))
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('login'))
+
+    def test_read_authenticated(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse_lazy('statuses_index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'statuses/index.html')
+
     def test_create_unauthenticated(self):
+        self.client.logout()
+
         response = self.client.get(reverse_lazy('status_create'))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('login'))
@@ -82,3 +98,13 @@ class StatusesTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('statuses_index'))
         self.assertFalse(Status.objects.contains(self.status3))
+
+    def test_delete_linked(self):
+        delete_url = reverse_lazy('status_delete', kwargs={'pk': self.status2.id})
+
+        self.client.force_login(self.user)
+
+        response = self.client.post(delete_url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse_lazy('statuses_index'))
+        self.assertTrue(Status.objects.contains(self.status2))
