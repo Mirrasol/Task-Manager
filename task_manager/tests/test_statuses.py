@@ -72,7 +72,6 @@ class StatusesTestCase(TestCase):
 
         updated_data = {
             'name': 'Updated',
-            'created_at': "2024-09-13 00:00:15.826553+03"
         }
 
         response = self.client.post(update_url, updated_data)
