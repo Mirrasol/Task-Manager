@@ -1,4 +1,6 @@
 from .models import Task
+from task_manager.statuses.models import Status
+from django.contrib.auth import get_user_model
 from task_manager.labels.models import Label
 from django.utils.translation import gettext_lazy as _
 from django.forms import CheckboxInput
@@ -6,7 +8,7 @@ import django_filters
 
 
 class TaskFilter(django_filters.FilterSet):
-    labels = django_filters.ModelChoiceFilter(queryset=Label.objects.all())
+    labels = django_filters.ModelChoiceFilter(queryset=Label.objects.all(), label=_('Label'))
     author = django_filters.BooleanFilter(
         method='filter_author',
         label=_('Personal only'),
