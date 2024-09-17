@@ -2,8 +2,8 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 from django_filters.views import FilterView
 from task_manager.tasks.models import Task
 from task_manager.tasks.filters import TaskFilter
-from task_manager.mixins import AuthenticatedMixin, AuthorProtectionMixin
 from task_manager.tasks.forms import TaskCreateForm
+from task_manager.mixins import AuthenticatedMixin, AuthorProtectionMixin
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
@@ -11,8 +11,8 @@ from django.utils.translation import gettext_lazy as _
 
 class IndexView(AuthenticatedMixin, FilterView, ListView):
     template_name = 'tasks/index.html'
-    filterset_class = TaskFilter
     model = Task
+    filterset_class = TaskFilter
     context_object_name = 'tasks'
     ordering = ['id']
 
