@@ -132,3 +132,35 @@ class TaskTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('tasks_index'))
         self.assertTrue(Task.objects.contains(self.task2))
+
+    def test_filter_by_status(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse_lazy('tasks_index'), {'status': 2})
+        self.assertEqual(response.context['tasks'].count(), 2)
+        response = self.client.get(reverse_lazy('tasks_index'), {'status': 3})
+        self.assertEqual(response.context['tasks'].count(), 0)
+
+    def test_filter_by_executor(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse_lazy('tasks_index'), {'executor': 1})
+        self.assertEqual(response.context['tasks'].count(), 1)
+        response = self.client.get(reverse_lazy('tasks_index'), {'executor': 3})
+        self.assertEqual(response.context['tasks'].count(), 0)
+
+    def test_filter_by_labels(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse_lazy('tasks_index'), {'labels': 1})
+        self.assertEqual(response.context['tasks'].count(), 1)
+        response = self.client.get(reverse_lazy('tasks_index'), {'labels': 3})
+        self.assertEqual(response.context['tasks'].count(), 0)
+
+    def test_filter_personal_tasks(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(reverse_lazy('tasks_index'), {'author': True})
+        self.assertEqual(response.context['tasks'].count(), 2)
+        self.assertTrue(response.context['tasks'].contains(self.task1))
+        self.assertFalse(response.context['tasks'].contains(self.task2))
