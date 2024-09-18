@@ -1,6 +1,6 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from task_manager.labels.models import Label
-from task_manager.labels.forms import LabelCreateForm
+from task_manager.labels.forms import LabelForm
 from task_manager.mixins import AuthenticatedMixin, DeleteProtectionMixin
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
@@ -17,7 +17,7 @@ class IndexView(AuthenticatedMixin, ListView):
 class LabelCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
     template_name = 'labels/create.html'
     model = Label
-    form_class = LabelCreateForm
+    form_class = LabelForm
     success_url = reverse_lazy('labels_index')
     success_message = _('Label has been created successfully')
 
@@ -25,7 +25,7 @@ class LabelCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
 class LabelUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
     template_name = 'labels/update.html'
     model = Label
-    form_class = LabelCreateForm
+    form_class = LabelForm
     success_url = reverse_lazy('labels_index')
     success_message = _('Label has been updated successfully')
 

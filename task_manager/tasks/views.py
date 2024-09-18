@@ -2,7 +2,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 from django_filters.views import FilterView
 from task_manager.tasks.models import Task
 from task_manager.tasks.filters import TaskFilter
-from task_manager.tasks.forms import TaskCreateForm
+from task_manager.tasks.forms import TaskForm
 from task_manager.mixins import AuthenticatedMixin, AuthorProtectionMixin
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
@@ -20,7 +20,7 @@ class IndexView(AuthenticatedMixin, FilterView, ListView):
 class TaskCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
     template_name = 'tasks/create.html'
     model = Task
-    form_class = TaskCreateForm
+    form_class = TaskForm
     success_url = reverse_lazy('tasks_index')
     success_message = _('Task has been created successfully')
 
@@ -33,7 +33,7 @@ class TaskCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
 class TaskUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
     template_name = 'tasks/update.html'
     model = Task
-    form_class = TaskCreateForm
+    form_class = TaskForm
     success_url = reverse_lazy('tasks_index')
     success_message = _('Task has been updated successfully')
 
