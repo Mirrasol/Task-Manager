@@ -4,7 +4,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext_lazy as _
-from django.http import HttpResponse
 
 
 class Homepage(TemplateView):
@@ -21,9 +20,3 @@ class CustomLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, _('You are logged out'))
         return super().dispatch(request, *args, **kwargs)
-
-
-def index(request):
-    a = None
-    a.hello()  # Creating an error with an invalid line of code
-    return HttpResponse("Hello, world. You're at the pollapp index.")
