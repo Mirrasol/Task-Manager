@@ -158,6 +158,10 @@ LOGIN_REDIRECT_URL = 'homepage'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'homepage'
 
+FIXTURE_DIRS = [
+    'task_manager/tests/fixtures',
+]
+
 # Rollbar
 
 ROLLBAR = {
