@@ -152,9 +152,9 @@ class TaskTestCase(TestCase):
     def test_filter_by_labels(self):
         self.client.force_login(self.user)
 
-        response = self.client.get(reverse_lazy('tasks_index'), {'label': 1})
+        response = self.client.get(reverse_lazy('tasks_index'), {'labels': 1})
         self.assertEqual(response.context['tasks'].count(), 1)
-        response = self.client.get(reverse_lazy('tasks_index'), {'label': 3})
+        response = self.client.get(reverse_lazy('tasks_index'), {'labels': 3})
         self.assertEqual(response.context['tasks'].count(), 0)
 
     def test_filter_personal_tasks(self):
