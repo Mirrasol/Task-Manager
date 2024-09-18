@@ -6,7 +6,6 @@
 {% block content %}
 
 <h1 class="my-4">{% trans "Task deletion" %}</h1>
-
 <form method="post">
     {% csrf_token %}
     <p>{% trans 'Are you sure you want to delete' %} {{ task.name }}?</p>

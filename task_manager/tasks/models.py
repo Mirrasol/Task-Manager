@@ -35,11 +35,11 @@ class Task(models.Model):
         null=True,
         blank=True,
     )
-    labels = models.ManyToManyField(
+    label = models.ManyToManyField(
         Label,
-        through='TasksAndLabels',
-        related_name='labels',
-        verbose_name=_('Labels'),
+        through='TaskToLabel',
+        related_name='label',
+        verbose_name=_('Label'),
         blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
@@ -48,6 +48,6 @@ class Task(models.Model):
         return self.name
 
 
-class TasksAndLabels(models.Model):
+class TaskToLabel(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    labels = models.ForeignKey(Label, on_delete=models.PROTECT)
+    label = models.ForeignKey(Label, on_delete=models.PROTECT)
