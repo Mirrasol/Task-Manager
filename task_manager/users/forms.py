@@ -3,6 +3,9 @@ from django.contrib.auth import get_user_model
 
 
 class UserForm(UserCreationForm):
+    """
+    A custom User form based on UserCreationForm.
+    """
     usable_password = None
 
     class Meta:

@@ -7,6 +7,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class AuthenticatedMixin(LoginRequiredMixin):
+    """
+    Verify that the user is authenticated.
+    Otherwise, send a custom error message and redirect to the login page.
+    """
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             messages.error(request, _('You are not authorized! Please, log in.'))
@@ -15,6 +19,10 @@ class AuthenticatedMixin(LoginRequiredMixin):
 
 
 class OwnerProtectionMixin(LoginRequiredMixin):
+    """
+    Verify that the user is the current owner of the user profile.
+    Otherwise, send a custom error message and redirect to users' list page.
+    """
     def dispatch(self, request, *args, **kwargs):
         if not self.get_object().pk == self.request.user.pk:
             messages.error(request, _('You do not have permissions to edit another user.'))
@@ -23,6 +31,10 @@ class OwnerProtectionMixin(LoginRequiredMixin):
 
 
 class AuthorProtectionMixin(LoginRequiredMixin):
+    """
+    Verify that the user is the author of the task.
+    Otherwise, send a custom error message and redirect to tasks' list page.
+    """
     def dispatch(self, request, *args, **kwargs):
         if not self.get_object().author == self.request.user:
             messages.error(request, _('Task can be deleted only by its author'))
@@ -31,6 +43,10 @@ class AuthorProtectionMixin(LoginRequiredMixin):
 
 
 class DeleteProtectionMixin(LoginRequiredMixin):
+    """
+    Send a custom error message and redirect to a designated page
+    in case ProtectedError occurs.
+    """
     def dispatch(self, request, *args, **kwargs):
         try:
             return super().dispatch(request, *args, **kwargs)

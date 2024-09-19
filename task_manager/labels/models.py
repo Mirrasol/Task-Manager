@@ -3,6 +3,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Label(models.Model):
+    """
+    A custom Label model.
+    """
     name = models.CharField(max_length=150, verbose_name=_('Name'), unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

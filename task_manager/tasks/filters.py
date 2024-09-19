@@ -6,6 +6,9 @@ import django_filters
 
 
 class TaskFilter(django_filters.FilterSet):
+    """
+    A custom filter for the tasks' list page.
+    """
     labels = django_filters.ModelChoiceFilter(queryset=Label.objects.all(), label=_('Label'))
     author = django_filters.BooleanFilter(
         method='filter_author',

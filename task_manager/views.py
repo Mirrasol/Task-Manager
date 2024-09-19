@@ -11,12 +11,18 @@ class Homepage(TemplateView):
 
 
 class CustomLoginView(SuccessMessageMixin, LoginView):
+    """
+    Add a custom message for a successful user login.
+    """
     template_name = 'login.html'
     form_class = AuthenticationForm
     success_message = _('You are logged in')
 
 
 class CustomLogoutView(LogoutView):
+    """
+    Add a custom message for a successful user logout.
+    """
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, _('You are logged out'))
         return super().dispatch(request, *args, **kwargs)

@@ -162,7 +162,8 @@ FIXTURE_DIRS = [
     'task_manager/tests/fixtures',
 ]
 
-# Rollbar
+
+# Rollbar configuration
 
 ROLLBAR = {
     'access_token': os.getenv('ROLLBAR_KEY'),

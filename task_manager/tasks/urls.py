@@ -1,3 +1,7 @@
+"""
+URL configuration for tasks app.
+
+"""
 from django.urls import path
 from task_manager.tasks.views import (
     IndexView,

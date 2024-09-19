@@ -10,6 +10,10 @@ from django.utils.translation import gettext_lazy as _
 
 
 class IndexView(AuthenticatedMixin, FilterView, ListView):
+    """
+    View for the list of tasks.
+    Verifies that the viewer is authorized.
+    """
     template_name = 'tasks/index.html'
     model = Task
     filterset_class = TaskFilter
@@ -18,6 +22,11 @@ class IndexView(AuthenticatedMixin, FilterView, ListView):
 
 
 class TaskCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
+    """
+    View for creating a new task, based on CreateView class.
+    Verifies that the current user is authorized.
+    Specifies a custom success message and redirects to tasks' list page.
+    """
     template_name = 'tasks/create.html'
     model = Task
     form_class = TaskForm
@@ -31,6 +40,11 @@ class TaskCreateView(AuthenticatedMixin, SuccessMessageMixin, CreateView):
 
 
 class TaskUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
+    """
+    View for updating a task, based on UpdateView class.
+    Verifies that the current user is authorized.
+    Specifies a custom success message and redirects to tasks' list page.
+    """
     template_name = 'tasks/update.html'
     model = Task
     form_class = TaskForm
@@ -39,6 +53,11 @@ class TaskUpdateView(AuthenticatedMixin, SuccessMessageMixin, UpdateView):
 
 
 class TaskDeleteView(AuthenticatedMixin, AuthorProtectionMixin, SuccessMessageMixin, DeleteView):
+    """
+    View for deleting a task, based on DeleteView class.
+    Verifies that the current user is authorized.
+    Specifies a custom success message and redirects to tasks' list page.
+    """
     template_name = 'tasks/delete.html'
     model = Task
     success_url = reverse_lazy('tasks_index')
@@ -46,5 +65,9 @@ class TaskDeleteView(AuthenticatedMixin, AuthorProtectionMixin, SuccessMessageMi
 
 
 class TaskView(AuthenticatedMixin, DetailView):
+    """
+    View for a particular task.
+    Verifies that the viewer is authorized.
+    """
     template_name = 'tasks/overview.html'
     model = Task

@@ -4,6 +4,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class User(AbstractUser):
+    """
+    A custom User model based on AbstractUser class.
+    """
     first_name = models.CharField(max_length=150, verbose_name=_('First name'))
     last_name = models.CharField(max_length=150, verbose_name=_('Last name'))
 

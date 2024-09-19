@@ -8,6 +8,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class IndexView(ListView):
+    """
+    View for the list of registered users.
+    """
     template_name = 'users/index.html'
     model = get_user_model()
     context_object_name = 'users'
@@ -15,6 +18,10 @@ class IndexView(ListView):
 
 
 class UserCreateView(SuccessMessageMixin, CreateView):
+    """
+    View for creating a new user, based on CreateView class.
+    Specifies a custom success message and redirects to login page.
+    """
     template_name = 'users/create.html'
     model = get_user_model()
     form_class = UserForm
@@ -28,6 +35,11 @@ class UserUpdateView(
     SuccessMessageMixin,
     UpdateView,
 ):
+    """
+    View for updating a user, based on UpdateView class.
+    Verifies that the current user is authorized.
+    Specifies a custom success message and redirects to users' list page.
+    """
     template_name = 'users/update.html'
     model = get_user_model()
     form_class = UserForm
@@ -42,6 +54,13 @@ class UserDeleteView(
     SuccessMessageMixin,
     DeleteView,
 ):
+    """
+    View for deleting a user, based on DeleteView class.
+    Verifies that the current user is authorized.
+    In case of success, specifies a custom success message.
+    Otherwise, specifies a custom error message.
+    Redirects to users' list page.
+    """
     template_name = 'users/delete.html'
     model = get_user_model()
     success_url = reverse_lazy('users_index')

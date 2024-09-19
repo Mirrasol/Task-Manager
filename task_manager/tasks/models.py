@@ -6,6 +6,9 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Task(models.Model):
+    """
+    A custom Task model.
+    """
     name = models.CharField(
         max_length=150,
         verbose_name=_('Name'),
@@ -49,5 +52,8 @@ class Task(models.Model):
 
 
 class TaskToLabel(models.Model):
+    """
+    A custom model to connect Task and Label models.
+    """
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     label = models.ForeignKey(Label, on_delete=models.PROTECT)
