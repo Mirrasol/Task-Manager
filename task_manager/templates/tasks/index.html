@@ -5,12 +5,12 @@
 
 {% block content %}
     <h1 class="my-4">{% trans "Tasks" %}</h1>
-    <a class="btn btn-primary mb-3" href="{% url 'task_create' %}">{% trans "Create task" %}</a>
+    <a class="btn mb-3" style="background-color: #20c997; color: white" href="{% url 'task_create' %}">{% trans "Create task" %}</a>
     <div class="card mb-3">
         <div class="card-body bg-light">
             <form class="form-inline center" method="get">
                 {% bootstrap_form filter.form %}
-                <input class="btn btn-primary" type="submit" value="{% trans 'Show' %}">
+                <input class="btn" style="background-color: #20c997; color: white" type="submit" value="{% trans 'Show' %}">
             </form>
         </div>
     </div>
@@ -32,16 +32,16 @@
             {% for task in tasks %}
             <tr>
                 <td>{{ task.id }}</td>
-                <td><a class="link" href="{% url 'task_overview' task.id %}">{{ task.name }}</a>
+                <td><a class="link" style="color: #008080" href="{% url 'task_overview' task.id %}">{{ task.name }}</a>
                 </td>
                 <td>{{ task.status }}</td>
                 <td>{{ task.author }}</td>
                 <td>{{ task.executor|default:"" }}</td>
                 <td>{{ task.created_at }}</td>
                 <td>
-                    <a class="link" href="{% url 'task_update' task.id %}">{% trans "Update" %}</a>
+                    <a class="link" style="color: #008080" href="{% url 'task_update' task.id %}">{% trans "Update" %}</a>
                     <br>
-                    <a class="link" href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>
+                    <a class="link" style="color: #008080" href="{% url 'task_delete' task.id %}">{% trans "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

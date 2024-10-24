@@ -5,7 +5,7 @@
 
 {% block content %}
     <h1 class="my-4">{% trans "Labels" %}</h1>
-    <a class="btn btn-primary mb-3" href="{% url 'label_create' %}">{% trans "Create label" %}</a>
+    <a class="btn mb-3" style="background-color: #20c997; color: white" href="{% url 'label_create' %}">{% trans "Create label" %}</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -22,9 +22,9 @@
                 <td>{{ label.name }}</td>
                 <td>{{ label.created_at }}</td>
                 <td>
-                    <a class="link" href="{% url 'label_update' label.id %}">{% trans "Update" %}</a>
+                    <a class="link" style="color: #008080" href="{% url 'label_update' label.id %}">{% trans "Update" %}</a>
                     <br>
-                    <a class="link" href="{% url 'label_delete' label.id %}">{% trans "Delete" %}</a>
+                    <a class="link" style="color: #008080" href="{% url 'label_delete' label.id %}">{% trans "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

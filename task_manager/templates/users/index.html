@@ -25,9 +25,9 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.date_joined }}</td>
                 <td>
-                    <a class="link" href="{% url 'user_update' user.id %}">{% trans "Update" %}</a>
+                    <a class="link" style="color: #008080" href="{% url 'user_update' user.id %}">{% trans "Update" %}</a>
                     <br>
-                    <a class="link" href="{% url 'user_delete' user.id %}">{% trans "Delete" %}</a>
+                    <a class="link" style="color: #008080" href="{% url 'user_delete' user.id %}">{% trans "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

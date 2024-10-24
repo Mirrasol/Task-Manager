@@ -9,6 +9,6 @@
 <form action="{% url 'task_create' %}" method="post">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <input class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
+    <input class="btn" style="background-color: #20c997; color: white" type="submit" value="{% trans 'Create' %}">
 </form>
 {% endblock %}
